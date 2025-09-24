@@ -278,6 +278,9 @@ body {
     font-size: 15.75px;
     padding-left: 2px;
 }
+.Experience .Experience-content h4 + p .fa-location-dot {
+    color: gray;
+}
 .Experience .Experience-content .box {
     background-color: var(--main-background-color);
     color: var(--main-text-color);
@@ -532,6 +535,7 @@ body {
     padding: 20px;
     border: var(--main-border);
     border-radius: 15px;
+    background-color: var(--main-background-color);
 }
 .Certifications .slide .fa-medal {
     color: rgb(203, 181, 7);
@@ -578,6 +582,7 @@ body {
 }
 .Education .Education-content .box {
     width: 70%;
+    max-width: 870px;
     min-height: 440px;
     margin-top: 20px;
     padding: 25px;
@@ -617,6 +622,7 @@ body {
     margin-bottom: 5px;
     color: var(--main-gray);
     font-size: 14px;
+    
     font-weight: 500;
 }
 .Education .Education-content .box p:has(.fa-building-columns) i,
@@ -642,6 +648,8 @@ body {
     padding: 5px;
     position: relative;
     list-style: none;
+    -webkit-text-wrap: nowrap;
+    text-wrap: nowrap;
 }
 .Education .Education-content .box .Highlights ul li::before {
     position: absolute;
@@ -844,8 +852,12 @@ textarea:focus,
 }
 /* ===============================-media-===================================== */
 @media (max-width: 767px) {
+    * {
+        -webkit-user-select: none;
+        user-select: none;
+    }
     .head h1 {
-        font-size: 35px;
+        font-size: 35px;/
     }
     .header {
         padding: 20px 0;
@@ -883,10 +895,29 @@ textarea:focus,
         font-size: 25px;
     }
     .sup-text {
-        font-size: clamp(10px, 3.3vw, 19px);
-        font-weight: 600;
+        font-size: 16px;
+        font-weight: 700;
     }
-    .fa-arrow-down {
-        /* display: none; */
+    .Experience .Experience-content h4 {
+        font-size: 15px;
+    }
+    .Certifications .slide {
+        width: 93%;
+    }
+    .head .image {
+        width: 150px;
+        height: 150px;
+    }
+    .Featured-box .card:hover {
+    translate: 0 -10px;
+}
+    .Education .Education-content .box .Gtime {
+        position: relative;
+        text-align: start;
+        padding: 0 0 14px 20px;
+        margin-top: -19px;
+    }
+    .Education .Education-content .box p:has(.fa-building-columns) {
+        line-height: 1.4;
     }
 }
