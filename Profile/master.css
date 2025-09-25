@@ -5,6 +5,7 @@
     padding: 0;
     margin: 0;
     font-family: var(--main-font);
+    font-display: swap;
 }
 ::-webkit-scrollbar {
     background-color: #333;
@@ -60,6 +61,9 @@ html {
     --main-footer-padding: 30px;
     --main-padding: 25px;
     --main-font: Arial, Helvetica, sans-serif;
+    --main-image: url(back.png);
+    --btn-background-color: transparent;
+    --massage-input-color: #121212;
 }
 body {
     background-color: var(--main-bg-dark);
@@ -87,12 +91,84 @@ body {
     border-radius: var(--main-radius);
 }
 /* start header ====================================*/
+
+/* start color mode ====================================*/
+input[type="checkbox"] {
+    display: none;
+}
+.mode {
+    padding:10px;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-right: -4%;
+    position: relative;
+    cursor: pointer;
+}
+.mode:hover {
+    background-color: rgba(128, 128, 128, 0.198);
+}
+input[type="checkbox"]:checked ~ .mode .fa-moon {
+    display: inline-block;
+}
+input[type="checkbox"]:checked ~ .mode .fa-sun {
+    display: none;
+}
+input[type="checkbox"]:checked ~ .head {
+    background-image: none;
+}
+.mode .fa-moon {
+    display: none;
+} 
+/* Light mode: when checkbox is checked, reverse root colors */
+:root:has(input[type="checkbox"]:checked) {
+    --main-background-color: #fff;
+    --main-text-color: #222;
+    --main-gray: #555;
+    --main-border: 1px solid rgba(128, 128, 128, 0.15);
+    --main-radius: 10px;
+    --main-gradient: linear-gradient(
+        to right,
+        oklch(0.946 0.245 262.881),
+        oklch(0.958 0.288 302.321)
+    );
+    --main-gradient-blue: linear-gradient(
+        to right,
+        #e3f0ff,
+        oklch(0.958 0.288 302.321)
+    );
+    --main-bg-dark: #f7f7f7;
+    --main-bg-darker: #ededed;
+    --main-bg-gray: #eaeaea;
+    --main-green: #4caf50;
+    --main-yellow: #ffc107;
+    --main-blue: #2b7fff;
+    --main-purple: #ad46ff;
+    --main-orange: #fe9a00;
+    --main-red: #ff2056;
+    --main-linkedin-bg: #e3f0ff;
+    --main-github-bg: #f5f5f5;
+    --main-location-bg: #e3d6ff;
+    --main-location-color: #59168b;
+    --main-phone-bg: #e3ffe3;
+    --main-phone-color: #029c3b;
+    --main-edu-green: #00c950;
+    --main-footer-padding: 30px;
+    --main-padding: 25px;
+    --main-font: Arial, Helvetica, sans-serif;
+    --main-image: url(white-background.jpg);
+    --btn-background-color: white;
+    --massage-input-color: #f3f3f5;
+}
+/* end color mode ====================================*/
+/* start header ====================================*/
 .header {
     background-color: var(--main-background-color);
     padding: var(--main-padding);
     position: fixed;
     width: 100%;
     text-align: center;
+    -webkit-text-wrap: nowrap;
+    text-wrap: nowrap;
     color: var(--main-text-color);
     border-bottom: 1px solid var(--main-gray);
     z-index: 11;
@@ -112,7 +188,7 @@ body {
     background-image: var(--main-gradient);
     background-clip: text;
     color: transparent;
-    padding-right: 3.6em;
+    padding-right: 5%;
     font-weight: 600;
     translate: 0 2px;
 }
@@ -124,7 +200,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url(back.png);
+    background-image: var(--main-image);
     background-size: cover;
     background-position: center;
     color: var(--main-text-color);
@@ -146,7 +222,7 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-image: url(me.png);
+    background-image: url(me.webp);
     background-size: cover;
     margin-bottom: 10px;
     margin-top: 130px;
@@ -206,10 +282,12 @@ body {
 .btns a:first-child {
     background-color: transparent;
     background-image: none;
+    background-color: var(--btn-background-color);
     border: 2px solid var(--main-gray);
 }
 .btns a:last-child {
     background-color: transparent;
+    background-color: var(--btn-background-color);
     background-image: none;
     border: 2px solid rgb(69, 64, 64);
 }
@@ -220,7 +298,7 @@ body {
 /* end head ================================================*/
 /* start about */
 .about {
-    background-color: rgb(19, 18, 18);
+    background-color: var(--main-bg-dark);
     color: var(--main-text-color);
     display: flex;
     justify-content: center;
@@ -674,7 +752,7 @@ body {
 .Touch {
     padding-top: 40px;
     padding-bottom: 60px;
-    background-color: #121212;
+    background-color: var(--main-bg-dark);
 }
 .Touch .Touch-content {
     display: flex;
@@ -789,7 +867,7 @@ body {
 .Message .info input,
 .Message .subject input,
 textarea {
-    background-color: #121212;
+    background-color: var(--massage-input-color);
     border: var(--main-border);
     padding: 10px;
     border-radius: 8px;
@@ -824,6 +902,7 @@ textarea:focus,
     resize: none;
     outline: none;
     height: 100px;
+    background-color: var(--);
 }
 .Touch-content .grid-box button {
     width: 80%;
@@ -920,5 +999,11 @@ textarea:focus,
     .Education .Education-content .box p:has(.fa-building-columns) {
         line-height: 1.4;
     }
+    .mode {
+        margin: 0;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    
 }
-
