@@ -64,6 +64,7 @@ html {
     --main-image: url(back.png);
     --btn-background-color: transparent;
     --massage-input-color: #121212;
+    --main-cv-color: black;
 }
 body {
     background-color: var(--main-bg-dark);
@@ -119,18 +120,12 @@ input[type="checkbox"]:checked ~ .head {
 .mode .fa-moon {
     display: none;
 } 
-/* Light mode: when checkbox is checked, reverse root colors */
 :root:has(input[type="checkbox"]:checked) {
     --main-background-color: #fff;
     --main-text-color: #222;
     --main-gray: #555;
     --main-border: 1px solid rgba(128, 128, 128, 0.15);
     --main-radius: 10px;
-    --main-gradient: linear-gradient(
-        to right,
-        oklch(0.946 0.245 262.881),
-        oklch(0.958 0.288 302.321)
-    );
     --main-gradient-blue: linear-gradient(
         to right,
         #e3f0ff,
@@ -158,6 +153,7 @@ input[type="checkbox"]:checked ~ .head {
     --main-image: url(white-background.jpg);
     --btn-background-color: white;
     --massage-input-color: #f3f3f5;
+    --main-cv-color: white;
 }
 /* end color mode ====================================*/
 /* start header ====================================*/
@@ -271,6 +267,9 @@ input[type="checkbox"]:checked ~ .head {
     width: 160px;
     color: var(--main-text-color);
     transition: 0.3s;
+}
+.btns a:nth-child(2) {
+    color: var(--main-cv-color);
 }
 .btns a:hover {
     scale: 1.1;
@@ -419,6 +418,7 @@ input[type="checkbox"]:checked ~ .head {
 
 .Featured-Projects-content {
     width: 100%;
+    padding-bottom: 50px;
 }
 .Featured-box .card {
     padding: 15px;
@@ -911,7 +911,7 @@ textarea:focus,
     background-image: var(--main-gradient);
     border-radius: 8px;
     border: 3px solid var(--main-background-color);
-    color: var(--main-text-color);
+    color: var(--main-cv-color);
     letter-spacing: 1px;
     font-size: 13px;
     overflow: hidden;
