@@ -93,7 +93,6 @@ const technologies = [
         name: "Express.js",
         icon: express,
     },
-
 ];
 
 const projects = [
